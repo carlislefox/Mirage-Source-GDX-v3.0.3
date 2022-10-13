@@ -1,2 +1,2 @@
 # MirageGDX
-A Java &amp; Kotlin port of the Mirage Source.
+A Java port of the Mirage Source.
