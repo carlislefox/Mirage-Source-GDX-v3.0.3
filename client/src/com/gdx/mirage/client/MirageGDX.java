@@ -1,4 +1,4 @@
-package com.gdx.mirage;
+package com.gdx.mirage.client;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;

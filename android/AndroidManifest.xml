@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         tools:ignore="UnusedAttribute">
         <activity
-            android:name="com.gdx.mirage.AndroidLauncher"
+            android:name="com.gdx.mirage.android.AndroidLauncher"
             android:label="@string/app_name" 
             android:screenOrientation="landscape"
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"

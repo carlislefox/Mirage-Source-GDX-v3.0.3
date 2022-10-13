@@ -1,10 +1,10 @@
-package com.gdx.mirage;
+package com.gdx.mirage.android;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.gdx.mirage.MirageGDX;
+import com.gdx.mirage.client.MirageGDX;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

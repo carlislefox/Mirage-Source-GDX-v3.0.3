@@ -40,26 +40,49 @@ allprojects {
     }
 }
 
+project(":client") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+        implementation project(":shared")
+        api "com.badlogicgames.gdx:gdx:$gdxVersion"
+        api "com.badlogicgames.ashley:ashley:$ashleyVersion"
+
+    }
+}
+
+project(":server") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+        implementation project(":shared")
+        api "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+
+    }
+}
+
+project(":shared") {
+    apply plugin: "java-library"
+
+
+    dependencies {
+
+
+    }
+}
+
 project(":desktop") {
     apply plugin: "java-library"
 
 
     dependencies {
-        implementation project(":core")
+        implementation project(":client")
         api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        
-    }
-}
 
-project(":core") {
-    apply plugin: "java-library"
-
-
-    dependencies {
-        api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        api "com.badlogicgames.ashley:ashley:$ashleyVersion"
-        
     }
 }
 
@@ -69,7 +92,7 @@ project(":android") {
     configurations { natives }
 
     dependencies {
-        implementation project(":core")
+        implementation project(":client")
         api "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
