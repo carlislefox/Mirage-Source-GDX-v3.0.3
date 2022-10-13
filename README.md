@@ -12,7 +12,7 @@ With that said, if you are looking for a compact and opinionated multi-platform 
 MMORPG masterpiece, this might be just what you are looking for.
 
 ## Contact
-You can get in touch with the developers behind this project via [this Discord server](https://discord.gg/Ux3x3cYX6x).
+You can get in touch with the developers behind this project via [this Discord server](https://discord.gg/C5vFaAq2tP).
 
 ## Tech
 
