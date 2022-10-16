@@ -17,7 +17,7 @@ public interface EngineConstants {
      * Day and Night
      */
 
-    float LENGTH_OF_DAY_SECONDS = TimeUnit.MINUTES.toSeconds(3);
-    float LENGTH_OF_NIGHT_SECONDS = TimeUnit.MINUTES.toSeconds(1);
+    float LENGTH_OF_DAY_SECONDS = TimeUnit.MINUTES.toSeconds(30);
+    float LENGTH_OF_NIGHT_SECONDS = TimeUnit.MINUTES.toSeconds(10);
 
 }
