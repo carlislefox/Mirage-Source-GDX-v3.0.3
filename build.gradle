@@ -21,12 +21,16 @@ allprojects {
     version = '1.0'
     ext {
         appName = "MirageGDX"
+
+        // LibGDX
         gdxVersion = '1.11.0'
-        roboVMVersion = '2.3.16'
-        box2DLightsVersion = '1.5'
-        ashleyVersion = '1.7.4'
-        aiVersion = '1.8.2'
-        gdxControllersVersion = '2.2.1'
+
+        // Lombok
+        lombokVersion = '1.18.22'
+
+        // Logback
+        logbackVersion = '1.4.4'
+        slf4jVersion = '2.0.3'
     }
 
     repositories {
@@ -46,9 +50,16 @@ project(":client") {
 
     dependencies {
         implementation project(":shared")
-        api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        api "com.badlogicgames.ashley:ashley:$ashleyVersion"
 
+        // LibGDX
+        api "com.badlogicgames.gdx:gdx:$gdxVersion"
+
+        // Lombok
+        compileOnly "org.projectlombok:lombok:$lombokVersion"
+        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+        // Logging
+        implementation group: 'org.slf4j', name: 'slf4j-api', version: "$slf4jVersion"
     }
 }
 
@@ -58,9 +69,18 @@ project(":server") {
 
     dependencies {
         implementation project(":shared")
+
+        // LibGDX
         api "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
+        // Lombok
+        compileOnly "org.projectlombok:lombok:$lombokVersion"
+        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+        // Logging
+        implementation group: 'org.slf4j', name: 'slf4j-api', version: "$slf4jVersion"
+        implementation group: 'org.slf4j', name: 'slf4j-simple', version: "$slf4jVersion"
     }
 }
 
@@ -80,9 +100,13 @@ project(":desktop") {
 
     dependencies {
         implementation project(":client")
+
+        // LibGDX
         api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
+        // Logging
+        implementation group: 'org.slf4j', name: 'slf4j-simple', version: "$slf4jVersion"
     }
 }
 
@@ -93,12 +117,15 @@ project(":android") {
 
     dependencies {
         implementation project(":client")
+
+        // LibGDX
         api "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
-        api "com.badlogicgames.ashley:ashley:$ashleyVersion"
-        
+
+        // Lombok
+        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     }
 }
