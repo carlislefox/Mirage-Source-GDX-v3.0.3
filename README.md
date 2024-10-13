@@ -1,4 +1,4 @@
-# MirageGDX
+# Mirage Source GDX v3.0.3
 A Java port of the Mirage Source v3.0.3.
 
 What is the Mirage Source you ask? Well, it is a now very dated and retro open source project for creating small 2d 
