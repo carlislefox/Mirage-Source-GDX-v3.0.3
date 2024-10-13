@@ -39,6 +39,9 @@ allprojects {
         // Logback
         logbackVersion = '1.4.4'
         slf4jVersion = '2.0.3'
+
+        // Ini4J
+        ini4jVersion = '0.5.4'
     }
 
     repositories {
@@ -84,6 +87,9 @@ project(":server") {
         // Lombok
         compileOnly "org.projectlombok:lombok:$lombokVersion"
         annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+        // Ini4J
+        implementation group: 'org.ini4j', name: 'ini4j', version: "$ini4jVersion"
 
         // Logging
         implementation group: 'org.slf4j', name: 'slf4j-api', version: "$slf4jVersion"
