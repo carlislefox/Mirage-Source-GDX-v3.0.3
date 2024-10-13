@@ -1,24 +1,32 @@
 buildscript {
-    
-
     repositories {
         mavenLocal()
         mavenCentral()
-        gradlePluginPortal()
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.4'
-        
-
+        classpath 'com.android.tools.build:gradle:8.1.4'
     }
 }
 
-allprojects {
-    apply plugin: "eclipse"
+plugins {
+    id 'idea'
+    id 'application'
+}
 
+allprojects {
+    apply plugin: "idea"
+    tasks.idea.dependsOn(cleanIdea)
     version = '1.0'
+
+    idea {
+        module {
+            inheritOutputDirs = true
+            downloadJavadoc = true
+            downloadSources = true
+        }
+    }
+
     ext {
         appName = "MirageGDX"
 
@@ -45,14 +53,13 @@ allprojects {
 }
 
 project(":client") {
-    apply plugin: "java-library"
-
+    apply plugin: "java"
 
     dependencies {
         implementation project(":shared")
 
         // LibGDX
-        api "com.badlogicgames.gdx:gdx:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
 
         // Lombok
         compileOnly "org.projectlombok:lombok:$lombokVersion"
@@ -71,8 +78,8 @@ project(":server") {
         implementation project(":shared")
 
         // LibGDX
-        api "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        implementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
         // Lombok
         compileOnly "org.projectlombok:lombok:$lombokVersion"
@@ -85,7 +92,7 @@ project(":server") {
 }
 
 project(":shared") {
-    apply plugin: "java-library"
+    apply plugin: "java"
 
 
     dependencies {
@@ -102,8 +109,8 @@ project(":desktop") {
         implementation project(":client")
 
         // LibGDX
-        api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 
         // Logging
         implementation group: 'org.slf4j', name: 'slf4j-simple', version: "$slf4jVersion"
@@ -119,7 +126,7 @@ project(":android") {
         implementation project(":client")
 
         // LibGDX
-        api "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+        implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
         natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
@@ -128,4 +135,9 @@ project(":android") {
         // Lombok
         annotationProcessor "org.projectlombok:lombok:$lombokVersion"
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
