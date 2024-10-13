@@ -29,16 +29,10 @@ At the moment this is just a bit of fun for me, so there is no way to directly g
 The project is broken up into several modules, each can be compiled separately, and there are interdependencies.
 
 ### Client
-Houses all platform independent client code.
+Houses all of the client side code.
 
 ### Server
 Houses all of the server side code.
 
 ### Shared
 Code used by both the client and server.
-
-### Desktop 
-Platform specific launcher for desktop systems
-
-### Android
-Platform specific launcher for android systems

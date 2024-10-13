@@ -1,1 +1,1 @@
-include 'client', 'server', 'shared', 'desktop', 'android'
+include 'client', 'server', 'shared'
