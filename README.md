@@ -13,17 +13,17 @@ absolutely necessary, mostly around the socket usage and LibGDX API.
 
 # Why?
 At the time of writing, the Mirage Source is all but lost to time. The project and its community are what got me into 
-programming, and I think a straight port might at least open the door to fresh ideas and enthusiasm.
+programming, and I feel an open source straight port to a modern language is a community service I feel compelled to 
+fulfil.
 
 ## Contact
-At the moment this is just a bit of fun for me, so there is no way to directly get in contact.
+At the moment this is just a bit of fun for me as I walk down memory lane, so there is no way to directly get in contact.
 
 ## Tech
 
 * Java
 * LibGDX
 * Gradle
-* Android
 
 ## Module Structure
 The project is broken up into several modules, each can be compiled separately, and there are interdependencies.
