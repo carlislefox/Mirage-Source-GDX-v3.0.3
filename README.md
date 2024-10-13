@@ -11,7 +11,7 @@ the original codebase as directly as possible.
 With that said, the tech stack here is obviously very different to VB6, so concessions have been made wherever 
 absolutely necessary, mostly around the socket usage and LibGDX API.
 
-# Why?
+## Why?
 At the time of writing, the Mirage Source is all but lost to time. The project and its community are what got me into 
 programming, and I feel an open source straight port to a modern language is a fitting karmic gift.
 
