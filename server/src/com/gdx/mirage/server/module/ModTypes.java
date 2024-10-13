@@ -1,7 +1,7 @@
 package com.gdx.mirage.server.module;
 
+import com.gdx.mirage.server.record.*;
 import com.gdx.mirage.shared.Constants;
-import com.gdx.mirage.shared.record.*;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

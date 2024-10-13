@@ -1,4 +1,4 @@
-package com.gdx.mirage.shared.record;
+package com.gdx.mirage.server.record;
 
 public class SpellRec {
 
