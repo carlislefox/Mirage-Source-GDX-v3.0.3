@@ -13,8 +13,7 @@ absolutely necessary, mostly around the socket usage and LibGDX API.
 
 # Why?
 At the time of writing, the Mirage Source is all but lost to time. The project and its community are what got me into 
-programming, and I feel an open source straight port to a modern language is a community service I feel compelled to 
-fulfil.
+programming, and I feel an open source straight port to a modern language is a fitting karmic gift.
 
 ## Contact
 At the moment this is just a bit of fun for me as I walk down memory lane, so there is no way to directly get in contact.
