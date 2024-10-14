@@ -28,4 +28,38 @@ public class AccountRec {
     public byte partyStarter;
     public byte gettingMap;
 
+    public void clear() {
+        login = "";
+        password = "";
+
+        for (int i = 0; i < Constants.MAX_CHARS; i++) {
+            clearChar(i);
+        }
+
+        // Temporary vars
+        buffer = "";
+        incBuffer = "";
+        charNum = 0;
+        ingame = false;
+        attackTimer = 0;
+        dataTimer = 0;
+        dataBytes = 0;
+        dataPackets = 0;
+        partyPlayer = 0;
+        inParty = 0;
+        target = 0;
+        targetType = 0;
+        castedSpell = Constants.NO;
+        partyStarter = Constants.NO;
+        gettingMap = Constants.NO;
+    }
+
+    public void clearChar(int charNum) {
+        characters[charNum].clear();
+    }
+
+    public PlayerRec getChar() {
+        return characters[charNum];
+    }
+
 }

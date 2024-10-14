@@ -9,4 +9,12 @@ public class MapItemRec {
     public byte x;
     public byte y;
 
+    public void clear() {
+        num = 0;
+        value = 0;
+        dur = 0;
+        x = 0;
+        y = 0;
+    }
+
 }

@@ -19,4 +19,20 @@ public class NpcRec {
     public byte speed;
     public byte magi;
 
+    public void clear() {
+        name = "";
+        attackSay = "";
+        sprite = 0;
+        spawnSecs = 0;
+        behavior = 0;
+        range = 0;
+        dropChance = 0;
+        dropItem = 0;
+        dropItemValue = 0;
+        str = 0;
+        def = 0;
+        speed = 0;
+        magi = 0;
+    }
+
 }

@@ -9,4 +9,13 @@ public class ItemRec {
     public int data2;
     public int data3;
 
+    public void clear() {
+        name = "";
+        pic = 0;
+        type = 0;
+        data1 = 0;
+        data2 = 0;
+        data3 = 0;
+    }
+
 }

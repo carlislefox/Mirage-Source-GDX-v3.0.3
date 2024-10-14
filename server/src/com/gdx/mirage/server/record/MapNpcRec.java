@@ -18,4 +18,19 @@ public class MapNpcRec {
     public long spawnWait;
     public long attackTimer;
 
+    public void clear() {
+        num = 0;
+        target = 0;
+        hp = 0;
+        mp = 0;
+        sp = 0;
+        x = 0;
+        y = 0;
+        dir = 0;
+
+        // Server use only
+        spawnWait = 0;
+        attackTimer = 0;
+    }
+
 }

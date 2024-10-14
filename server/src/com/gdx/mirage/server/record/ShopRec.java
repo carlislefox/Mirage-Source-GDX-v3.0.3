@@ -10,4 +10,14 @@ public class ShopRec {
     public byte fixesItems;
     public final TradeItemRec[] tradeItem = new TradeItemRec[Constants.MAX_TRADES];
 
+    public void clear() {
+        name = "";
+        joinSay = "";
+        leaveSay = "";
+
+        for (int i = 0; i < Constants.MAX_TRADES; i++) {
+            tradeItem[i].clear();
+        }
+    }
+
 }
