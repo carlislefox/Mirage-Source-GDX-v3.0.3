@@ -7,17 +7,21 @@ public class NpcRec {
 
     public int sprite;
     public long spawnSecs;
-    public byte behavior;
-    public byte range;
+    public short behavior;
+    public short range;
 
     public int dropChance;
-    public byte dropItem;
+    public short dropItem;
     public int dropItemValue;
 
-    public byte str;
-    public byte def;
-    public byte speed;
-    public byte magi;
+    public short str;
+    public short def;
+    public short speed;
+    public short magi;
+
+    public NpcRec() {
+        clear();
+    }
 
     public void clear() {
         name = "";

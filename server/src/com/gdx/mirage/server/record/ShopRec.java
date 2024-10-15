@@ -7,8 +7,12 @@ public class ShopRec {
     public String name;
     public String joinSay;
     public String leaveSay;
-    public byte fixesItems;
+    public short fixesItems;
     public final TradeItemRec[] tradeItem = new TradeItemRec[Constants.MAX_TRADES];
+
+    public ShopRec() {
+        clear();
+    }
 
     public void clear() {
         name = "";
@@ -16,7 +20,13 @@ public class ShopRec {
         leaveSay = "";
 
         for (int i = 0; i < Constants.MAX_TRADES; i++) {
-            tradeItem[i].clear();
+            final TradeItemRec tradeItemRec = tradeItem[i];
+
+            if (tradeItemRec != null) {
+                tradeItemRec.clear();
+            } else {
+                tradeItem[i] = new TradeItemRec();
+            }
         }
     }
 

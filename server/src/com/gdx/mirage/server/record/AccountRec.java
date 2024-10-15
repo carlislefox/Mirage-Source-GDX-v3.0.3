@@ -21,12 +21,16 @@ public class AccountRec {
     public long dataBytes;
     public long dataPackets;
     public long partyPlayer;
-    public byte inParty;
-    public byte targetType;
-    public byte target;
-    public byte castedSpell;
-    public byte partyStarter;
-    public byte gettingMap;
+    public short inParty;
+    public short targetType;
+    public short target;
+    public short castedSpell;
+    public short partyStarter;
+    public short gettingMap;
+
+    public AccountRec() {
+        clear();
+    }
 
     public void clear() {
         login = "";
@@ -55,11 +59,21 @@ public class AccountRec {
     }
 
     public void clearChar(int charNum) {
-        characters[charNum].clear();
+        final PlayerRec playerRec = characters[charNum];
+
+        if (playerRec != null) {
+            playerRec.clear();
+        } else {
+            characters[charNum] = new PlayerRec();
+        }
     }
 
     public PlayerRec getChar() {
         return characters[charNum];
+    }
+
+    public boolean charExist(int charNum) {
+        return !characters[charNum].name.isEmpty();
     }
 
 }

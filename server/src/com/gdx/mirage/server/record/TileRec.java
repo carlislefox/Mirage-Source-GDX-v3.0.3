@@ -6,10 +6,14 @@ public class TileRec {
     public int mask;
     public int anim;
     public int fringe;
-    public byte type;
+    public short type;
     public int data1;
     public int data2;
     public int data3;
+
+    public TileRec() {
+        clear();
+    }
 
     public void clear() {
         ground = 0;

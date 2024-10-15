@@ -10,13 +10,17 @@ public class MapNpcRec {
     public long mp;
     public long sp;
 
-    public byte x;
-    public byte y;
+    public short x;
+    public short y;
     public int dir;
 
     // For server use only
     public long spawnWait;
     public long attackTimer;
+
+    public MapNpcRec() {
+        clear();
+    }
 
     public void clear() {
         num = 0;

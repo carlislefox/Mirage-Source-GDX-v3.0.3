@@ -6,8 +6,12 @@ public class MapItemRec {
     public long value;
     public int dur;
 
-    public byte x;
-    public byte y;
+    public short x;
+    public short y;
+
+    public MapItemRec() {
+        clear();
+    }
 
     public void clear() {
         num = 0;

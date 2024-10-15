@@ -42,6 +42,9 @@ public interface Constants {
     int MAX_MAPY = 11;
     int MAP_MORAL_NONE = 0;
     int MAP_MORAL_SAFE = 1;
+    int START_MAP = 1;
+    int START_X = MAX_MAPX / 2;
+    int START_Y = MAX_MAPY / 2;
 
     // Image constants
     int PIC_X = 32;

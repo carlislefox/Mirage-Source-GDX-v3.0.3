@@ -4,10 +4,14 @@ public class ItemRec {
 
     public String name;
     public int pic;
-    public byte type;
+    public short type;
     public int data1;
     public int data2;
     public int data3;
+
+    public ItemRec() {
+        clear();
+    }
 
     public void clear() {
         name = "";

@@ -4,10 +4,14 @@ public class ClassRec {
 
     public String name;
     public int sprite;
-    public byte str;
-    public byte def;
-    public byte speed;
-    public byte magi;
+    public short str;
+    public short def;
+    public short speed;
+    public short magi;
+
+    public ClassRec() {
+        clear();
+    }
 
     public void clear() {
         name = "";

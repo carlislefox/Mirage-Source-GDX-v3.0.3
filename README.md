@@ -6,10 +6,16 @@ multiplayer online games written in Visual Basic 6. The original source code can
 
 This project aims to bring the Mirage Source to the multi-platform world of Java, without drastic innovation or 
 unnecessary changes. This means that by design this project is ignoring modern coding conventions in favour of porting 
-the original v3.0.3 codebase as directly as possible, line for line.
+the original v3.0.3 codebase as directly as possible, only making structural changes where it seems obviously obtuse 
+_not to_.
 
 With that said, the tech stack here is obviously very different to VB6, so concessions have been made wherever 
 absolutely necessary, mostly around the socket usage and LibGDX API.
+
+## Goals
+
+1. Fully port the server, respect the protocol to the extent that the old vb6 client works with it
+2. Fully port the client, in all its tiny fixed window size glory
 
 ## Why?
 At the time of writing, the Mirage Source is all but lost to time. The project and its community are what got me into 

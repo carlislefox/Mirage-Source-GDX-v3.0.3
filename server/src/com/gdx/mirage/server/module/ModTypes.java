@@ -30,8 +30,7 @@ public class ModTypes {
     }
 
     /**
-     * The singleton pattern dictates we will only ever have one instance of this class, having a static getInstance()
-     * method like this means we can get a reference to our class from anywhere in the code by calling.
+     * Singleton.
      */
     public static ModTypes getInstance() {
         if (instance == null) instance = new ModTypes();
@@ -40,26 +39,50 @@ public class ModTypes {
 
     public void clearTempTile() {
         for (int i = 0; i < Constants.MAX_MAPS; i++) {
-            tempTile[i].clear();
+            tempTile[i] = new TempTileRec();
         }
     }
 
     public void clearClasses() {
         for (int i = 0; i < MAX_CLASSES; i++) {
-            classes[i].clear();
+            final ClassRec classRec = classes[i];
+
+            if (classRec != null) {
+                classRec.clear();
+            } else {
+                classes[i] = new ClassRec();
+            }
         }
     }
 
-    public void clearPlayer(int index) {
-        players[index].clear();
+    public AccountRec clearPlayer(int index) {
+        final AccountRec accountRec = players[index];
+
+        if (accountRec != null) {
+            accountRec.clear();
+        } else {
+            players[index] = new AccountRec();
+        }
+
+        return players[index];
     }
 
     public void clearChar(int index, int charNum) {
+        if (players[index] == null) {
+            clearPlayer(index);
+        }
+
         players[index].clearChar(charNum);
     }
 
     public void clearItem(int index) {
-        item[index].clear();
+        final ItemRec itemRec = item[index];
+
+        if (itemRec != null) {
+            itemRec.clear();
+        } else {
+            item[index] = new ItemRec();
+        }
     }
 
     public void clearItems() {
@@ -69,7 +92,13 @@ public class ModTypes {
     }
 
     public void clearNpc(int index) {
-        npc[index].clear();
+        final NpcRec npcRec = npc[index];
+
+        if (npcRec != null) {
+            npcRec.clear();
+        } else {
+            npc[index] = new NpcRec();
+        }
     }
 
     public void clearNpcs() {
@@ -79,7 +108,13 @@ public class ModTypes {
     }
 
     public void clearMapItem(int index, int mapNum) {
-        mapItem[mapNum][index].clear();
+        MapItemRec mapItemRec = mapItem[mapNum][index];
+
+        if (mapItemRec != null) {
+            mapItemRec.clear();
+        } else {
+            mapItem[mapNum][index] = new MapItemRec();
+        }
     }
 
     public void clearMapItems() {
@@ -91,7 +126,13 @@ public class ModTypes {
     }
 
     public void clearMapNpc(int index, int mapNum) {
-        mapNpc[mapNum][index].clear();
+        final MapNpcRec mapNpcRec = mapNpc[mapNum][index];
+
+        if (mapNpcRec != null) {
+            mapNpcRec.clear();
+        } else {
+            mapNpc[mapNum][index] = new MapNpcRec();
+        }
     }
 
     public void clearMapNpcs() {
@@ -103,7 +144,13 @@ public class ModTypes {
     }
 
     public void clearMap(int mapNum) {
-        map[mapNum].clear();
+        final MapRec mapRec = map[mapNum];
+
+        if (mapRec != null) {
+            mapRec.clear();
+        } else {
+            map[mapNum] = new MapRec();
+        }
 
         // Reset the values for if a player is on the map or not
         playersOnMap[mapNum] = Constants.NO;
@@ -116,7 +163,13 @@ public class ModTypes {
     }
 
     public void clearShop(int index) {
-        shop[index].clear();
+        final ShopRec shopRec = shop[index];
+
+        if (shopRec != null) {
+            shopRec.clear();
+        } else {
+            shop[index] = new ShopRec();
+        }
     }
 
     public void clearShops() {
@@ -126,7 +179,13 @@ public class ModTypes {
     }
 
     public void clearSpell(int index) {
-        spell[index].clear();
+        final SpellRec spellRec = spell[index];
+
+        if (spellRec != null) {
+            spellRec.clear();
+        } else {
+            spell[index] = new SpellRec();
+        }
     }
 
     public void clearSpells() {
@@ -149,38 +208,6 @@ public class ModTypes {
 //    Function GetPlayerIP(ByVal Index As Long) As String
 //    GetPlayerIP = frmServer.Socket(Index).RemoteHostIP
 //    End Function
-//
-//    Function GetPlayerInvItemNum(ByVal Index As Long, ByVal InvSlot As Long) As Long
-//    GetPlayerInvItemNum = Player(Index).Char(Player(Index).CharNum).Inv(InvSlot).Num
-//    End Function
-//
-//    Sub SetPlayerInvItemNum(ByVal Index As Long, ByVal InvSlot As Long, ByVal ItemNum As Long)
-//    Player(Index).Char(Player(Index).CharNum).Inv(InvSlot).Num = ItemNum
-//    End Sub
-//
-//    Function GetPlayerInvItemValue(ByVal Index As Long, ByVal InvSlot As Long) As Long
-//    GetPlayerInvItemValue = Player(Index).Char(Player(Index).CharNum).Inv(InvSlot).Value
-//    End Function
-//
-//    Sub SetPlayerInvItemValue(ByVal Index As Long, ByVal InvSlot As Long, ByVal ItemValue As Long)
-//    Player(Index).Char(Player(Index).CharNum).Inv(InvSlot).Value = ItemValue
-//    End Sub
-//
-//    Function GetPlayerInvItemDur(ByVal Index As Long, ByVal InvSlot As Long) As Long
-//    GetPlayerInvItemDur = Player(Index).Char(Player(Index).CharNum).Inv(InvSlot).Dur
-//    End Function
-//
-//    Sub SetPlayerInvItemDur(ByVal Index As Long, ByVal InvSlot As Long, ByVal ItemDur As Long)
-//    Player(Index).Char(Player(Index).CharNum).Inv(InvSlot).Dur = ItemDur
-//    End Sub
-//
-//    Function GetPlayerSpell(ByVal Index As Long, ByVal SpellSlot As Long) As Long
-//    GetPlayerSpell = Player(Index).Char(Player(Index).CharNum).Spell(SpellSlot)
-//    End Function
-//
-//    Sub SetPlayerSpell(ByVal Index As Long, ByVal SpellSlot As Long, ByVal SpellNum As Long)
-//    Player(Index).Char(Player(Index).CharNum).Spell(SpellSlot) = SpellNum
-//    End Sub
 //
 
 }

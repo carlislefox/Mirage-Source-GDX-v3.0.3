@@ -2,9 +2,13 @@ package com.gdx.mirage.server.record;
 
 public class PlayerInvRec {
 
-    public byte num;
+    public short num;
     public long value;
     public int dur;
+
+    public PlayerInvRec() {
+        clear();
+    }
 
     public void clear() {
         num = 0;

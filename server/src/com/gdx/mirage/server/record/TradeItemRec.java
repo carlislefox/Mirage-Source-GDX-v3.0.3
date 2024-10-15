@@ -7,6 +7,10 @@ public class TradeItemRec {
     public long getItem;
     public long getValue;
 
+    public TradeItemRec() {
+        clear();
+    }
+
     public void clear() {
         giveItem = 0;
         giveValue = 0;

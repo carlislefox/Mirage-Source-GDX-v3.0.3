@@ -31,7 +31,7 @@ allprojects {
         gdxVersion = '1.11.0'
 
         // Lombok
-        lombokVersion = '1.18.22'
+        lombokVersion = '1.18.30'
 
         // Logback
         logbackVersion = '1.4.4'

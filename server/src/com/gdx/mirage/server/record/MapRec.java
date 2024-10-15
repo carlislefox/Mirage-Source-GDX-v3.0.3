@@ -6,19 +6,23 @@ public class MapRec {
 
     public String name;
     public long revision;
-    public byte moral;
+    public short moral;
     public int up;
     public int down;
     public int left;
     public int right;
-    public byte music;
+    public short music;
     public int bootMap;
-    public byte bootX;
-    public byte bootY;
-    public byte shop;
-    public byte indoors;
+    public short bootX;
+    public short bootY;
+    public short shop;
+    public short indoors;
     public TileRec[][] tile = new TileRec[Constants.MAX_MAPX][Constants.MAX_MAPY];
-    public byte[] npc = new byte[Constants.MAX_MAP_NPCS];
+    public short[] npc = new short[Constants.MAX_MAP_NPCS];
+
+    public MapRec() {
+        clear();
+    }
 
     public void clear() {
         name = "";
@@ -31,7 +35,13 @@ public class MapRec {
 
         for (int y = 0; y < Constants.MAX_MAPY; y++) {
             for (int x = 0; x < Constants.MAX_MAPX; x++) {
-                tile[x][y].clear();
+                final TileRec tileRec = tile[x][y];
+
+                if (tileRec != null) {
+                    tileRec.clear();
+                } else {
+                    tile[x][y] = new TileRec();
+                }
             }
         }
     }

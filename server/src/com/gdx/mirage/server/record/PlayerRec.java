@@ -10,14 +10,14 @@ public class PlayerRec {
 
     // General
     public String name;
-    public byte sex;
-    public byte clazz;
-    public int sprite;
-    public byte level;
+    public short sex;
+    public short clazz;
+    public short sprite;
+    public short level;
     public long exp;
-    public byte access;
-    public byte pk;
-    public byte guild;
+    public short access;
+    public short pk;
+    public short guild;
 
     // Vitals
     @Getter private long hp;
@@ -25,27 +25,31 @@ public class PlayerRec {
     @Getter private long sp;
 
     // Stats
-    public byte str;
-    public byte def;
-    public byte speed;
-    public byte magi;
-    public byte points;
+    public short str;
+    public short def;
+    public short speed;
+    public short magi;
+    public short points;
 
     // Worn equipment
-    public byte armorSlot;
-    public byte weaponSlot;
-    public byte helmetSlot;
-    public byte shieldSlot;
+    public short armorSlot;
+    public short weaponSlot;
+    public short helmetSlot;
+    public short shieldSlot;
 
     // Inventory
     public final PlayerInvRec[] inv = new PlayerInvRec[Constants.MAX_INV];
-    public final byte[] spell = new byte[Constants.MAX_PLAYER_SPELLS];
+    public final short[] spell = new short[Constants.MAX_PLAYER_SPELLS];
 
     // Position
     public int map;
-    public byte x;
-    public byte y;
-    public byte dir;
+    public short x;
+    public short y;
+    public short dir;
+
+    public PlayerRec() {
+        clear();
+    }
 
     public void clear() {
         clazz = 0;
@@ -64,8 +68,14 @@ public class PlayerRec {
         speed = 0;
         magi = 0;
 
-        for (int n = 0; n < Constants.MAX_PLAYER_SPELLS; n++) {
-            inv[n].clear();
+        for (int n = 0; n < Constants.MAX_INV; n++) {
+            final PlayerInvRec playerInvRec = inv[n];
+
+            if (playerInvRec != null) {
+                playerInvRec.clear();
+            } else {
+                inv[n] = new PlayerInvRec();
+            }
         }
 
         Arrays.fill(spell, (byte) 0);
