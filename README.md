@@ -10,7 +10,7 @@ the original v3.0.3 codebase as directly as possible, only making structural cha
 _not to_.
 
 With that said, the tech stack here is obviously very different to VB6, so concessions have been made wherever 
-absolutely necessary, mostly around the socket usage and LibGDX API.
+absolutely necessary.
 
 ## Goals
 
